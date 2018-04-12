@@ -24,8 +24,6 @@ PROC EXPORT
 	REPLACE;
 RUN;
 
-
-/* Q5 */
 /* To standardize the variables into z1, z2, z3 */
 PROC STDIZE
 	DATA=ratings_PC
@@ -33,6 +31,7 @@ PROC STDIZE
  	var KNOWHOW PROBLEM_SOLVING ACCOUNTABILITY;
 RUN;
 
+/* run regression */
 PROC REG DATA=ratings_pc_std;
 MODEL prin1 =  KNOWHOW PROBLEM_SOLVING ACCOUNTABILITY / NOINT;
 RUN;
